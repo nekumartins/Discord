@@ -22,6 +22,10 @@ def run():
     async def hello(ctx):
         """This is a test feature"""
         await ctx.send("Good day, Have you washed your ass today ")
+
+    @bot.command()
+    async def echo(ctx, *what):
+        await ctx.send(what)
         
     bot.run(settings.SECRET, root_logger=True) 
 
