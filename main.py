@@ -25,7 +25,7 @@ def run():
 
     @bot.command()
     async def echo(ctx, *what):
-        await ctx.send(what)
+        await ctx.send(" " .join(what))
         
     bot.run(settings.SECRET, root_logger=True) 
 
