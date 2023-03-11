@@ -16,7 +16,12 @@ def run():
 
     @bot.command()
     async def ping(ctx):
+        """Sends a pong response"""
         await ctx.send("pong")
+    @bot.command()
+    async def hello(ctx):
+        """This is a test feature"""
+        await ctx.send("Good day, Have you washed your ass today ")
         
     bot.run(settings.SECRET, root_logger=True) 
 
