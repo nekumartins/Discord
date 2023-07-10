@@ -1,8 +1,12 @@
 import settings
 import discord 
+import random as rd
 from discord.ext import commands
 
 logger = settings.logging.getLogger("bot")
+
+numbers = [1,2,3,4,5,6,7,8,9,10]
+coin = ["Heads", "Tail"]
 
 def run():
     intents = discord.Intents.default()
@@ -10,6 +14,8 @@ def run():
 
     bot = commands.Bot(command_prefix='#', intents=intents)
 
+
+	
     @bot.event
     async  def on_ready():
         logger.info(f"User: {bot.user}")
@@ -18,6 +24,7 @@ def run():
     async def ping(ctx):
         """Sends a pong response"""
         await ctx.send("pong")
+
     @bot.command()
     async def hello(ctx):
         """This is a test feature"""
@@ -26,7 +33,20 @@ def run():
     @bot.command()
     async def echo(ctx, *what):
         await ctx.send(" " .join(what))
-        
+
+    @bot.command()
+    async def riley(ctx):
+        """supreme commander riley"""
+        await ctx.send("What do you know about the supreme leader of the peaches guild") 
+
+    @bot.command()
+    async def random(ctx):
+        """Supposedly sends you a random number from answers""" 
+        num = rd.choice(numbers)
+        await ctx.send(f"Your lucky number is {num}")
+		
+    
+
     bot.run(settings.SECRET, root_logger=True) 
 
 
