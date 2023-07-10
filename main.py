@@ -8,7 +8,7 @@ con = sql.connect("peaches.db")
 cur = con.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS questions(question TEXT)")
 con.commit()
-con.close()
+
 
 logger = settings.logging.getLogger("bot")
 
@@ -53,6 +53,20 @@ def run():
         """Supposedly sends you a random number from answers""" 
         num = rd.choice(numbers)
         await ctx.send(f"Your lucky number is {num}")
+
+    @bot.command()
+    async def add(ctx,*, question: str):
+        cur.execute("INSERT INTO questions (question) VALUES (?)", (question,))
+        con.commit()
+        await ctx.send("Question added successfully ")
+
+    @bot.command()
+    async def truth(ctx):
+        cur.execute("SELECT question FROM questions")
+        truths = cur.fetchall()
+        truthQues = rd.choice(truths)[0]
+        await ctx.send(truthQues)
+        
 		
     
 
