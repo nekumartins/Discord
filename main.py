@@ -2,11 +2,20 @@ import settings
 import discord 
 import random as rd
 from discord.ext import commands
+import sqlite3 as sql
+
+con = sql.connect("peaches.db")
+cur = con.cursor()
+cur.execute("CREATE TABLE IF NOT EXISTS questions(question TEXT)")
+con.commit()
+con.close()
 
 logger = settings.logging.getLogger("bot")
 
 numbers = [1,2,3,4,5,6,7,8,9,10]
 coin = ["Heads", "Tail"]
+
+questions = "truths.txt"
 
 def run():
     intents = discord.Intents.default()
