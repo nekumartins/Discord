@@ -1,5 +1,4 @@
 discord.py
 python-dotenv
 os-sys
-sqlite3
 logging
