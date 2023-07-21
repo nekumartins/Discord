@@ -1,5 +1,4 @@
 discord.py
-random
 python-dotenv
 os-sys
 sqlite3
