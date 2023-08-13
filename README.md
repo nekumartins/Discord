@@ -1,5 +1,4 @@
-# Discord
-for a discord bot 
+## Peaches
 
-- Bot in it's early stages of development
-- To be a casual private bot for our server(for now)
+- Chat and Moderation Bot
+  
